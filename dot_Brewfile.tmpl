@@ -1,12 +1,15 @@
+cask_args appdir: "/Applications"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "versent/taps"
 
 brew "act"
 {{ if (eq .chezmoi.hostname "shimizu-naoya") }}
-brew "anyenv"
-{{ end }}
+brew "saml2aws"
 brew "argocd"
+brew "sops"
+{{ end }}
+brew "anyenv"
 brew "asdf"
 brew "awscli", link: false
 brew "bat"
@@ -21,8 +24,6 @@ brew "jq"
 brew "mysql@5.7", link: true
 brew "peco"
 brew "python@3.10"
-brew "saml2aws"
-brew "sops"
 brew "starship"
 brew "wget"
 brew "yarn"
