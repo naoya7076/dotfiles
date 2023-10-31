@@ -1,10 +1,11 @@
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/services"
-tap "robotsandpencils/made"
 tap "versent/taps"
+
 brew "act"
+{{ if (eq .chezmoi.hostname "shimizu-naoya") }}
 brew "anyenv"
+{{ end }}
 brew "argocd"
 brew "asdf"
 brew "awscli", link: false
@@ -26,6 +27,6 @@ brew "starship"
 brew "wget"
 brew "yarn"
 brew "yq"
-brew "zsh"
 brew "hashicorp/tap/terraform", link: false
+
 cask "chromedriver"
