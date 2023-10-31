@@ -1,0 +1,70 @@
+# Customize to your needs...
+# 自動補完を有効にする
+# コマンドの引数やパス名を途中まで入力して <Tab> を押すといい感じに補完してくれる
+# 例： `cd path/to/<Tab>`, `ls -<Tab>`
+autoload -U compinit
+compinit
+
+# 入力したコマンドが存在せず、かつディレクトリ名と一致するなら、ディレクトリに cd する
+# 例： /usr/bin と入力すると /usr/bin ディレクトリに移動
+setopt auto_cd
+
+# ↑を設定すると、 .. とだけ入力したら1つ上のディレクトリに移動できるので……
+# 2つ上、3つ上にも移動できるようにする
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# cd した先のディレクトリをディレクトリスタックに追加する
+# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
+# `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
+setopt auto_pushd
+
+# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
+setopt pushd_ignore_dups
+
+# 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
+# コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
+setopt hist_ignore_all_dups
+
+#anyenvのパス
+export PATH=“$HOME/.anyenv/bin:$PATH”
+eval "$(anyenv init -)"
+
+#nodenvのパスを通す
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+# ----------------------
+# Command Aliases
+# ----------------------
+alias ls='exa'
+alias cat="bat"
+alias ps='procs'
+alias cd='z'
+alias grep='rg'
+
+alias k="kubectl"
+alias g='git'
+
+# peco
+function peco-history-selection() {
+  BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco)
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+# github cli
+eval "$(gh completion -s zsh)"
+
+{{ if (eq .chezmoi.hostname "shimizu-naoya") }}
+# norinium
+alias ber="bundle exec rspec --color"
+alias hber="HEADLESS=true bundle exec rspec --color"
+alias berl="bundle exec dotenv -f '.env.local,.env' bundle exec rspec --color"
+alias beri="bundle exec dotenv -f '.env.integration,.env' bundle exec rspec --color"
+
+# norinium_mobile
+alias berios="bundle exec dotenv -f '.env.ios,.env' bundle exec rspec --color"
+alias berand="bundle exec dotenv -f '.env.android,.env' bundle exec rspec --color"
+{{ end }}
