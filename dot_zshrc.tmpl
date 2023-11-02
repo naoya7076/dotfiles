@@ -30,8 +30,12 @@ setopt hist_ignore_all_dups
 # eval "$(starship init zsh)"
 
 #anyenvのパス
+# anyenv がコマンドとして実行可能であれば anyenv を初期化します。
+if [[ "${+commands[anyenv]}" == 1 ]]
+then
+  eval "$(anyenv init - zsh)"
+fi
 export PATH=“$HOME/.anyenv/bin:$PATH”
-eval "$(anyenv init -)"
 
 #nodenvのパスを通す
 export PATH="$HOME/.nodenv/bin:$PATH"
