@@ -15,7 +15,6 @@ brew "git-secrets"
 brew "grpcurl"
 brew "jq"
 brew "peco"
-brew "python@3.10"
 brew "starship"
 brew "wget"
 brew "yarn"
@@ -26,8 +25,10 @@ cask "raycast"
 cask "warp"
 cask "slack"
 cask "visual-studio-code"
+cask "google-japanese-ime"
+cask "font-ricty-diminished"
 
-{{ if (eq .chezmoi.hostname "shimizu-naoya") }}
+{{ if (eq .chezmoi.username "naoya-shimizu") }}
 tap "hashicorp/tap"
 tap "versent/taps"
 
