@@ -1,7 +1,9 @@
 cask_args appdir: "/Applications"
-tap "hashicorp/tap"
 tap "homebrew/bundle"
+{{ if (eq .chezmoi.hostname "shimizu-naoya") }}
+tap "hashicorp/tap"
 tap "versent/taps"
+{{ end }}
 
 brew "act"
 brew "anyenv"
@@ -22,8 +24,8 @@ brew "starship"
 brew "wget"
 brew "yarn"
 brew "yq"
-brew "hashicorp/tap/terraform", link: false
 {{ if (eq .chezmoi.hostname "shimizu-naoya") }}
+brew "hashicorp/tap/terraform", link: false
 brew "saml2aws"
 brew "argocd"
 brew "sops"
@@ -34,9 +36,11 @@ cask "chromedriver"
 cask "raycast"
 cask "warp"
 cask "slack"
+cask "visual-studio-code"
 {{ if (eq .chezmoi.hostname "shimizu-naoya") }}
 cask "docker"
 cask "appium"
 cask "appium-inspector"
 cask "tableplus"
+cask "skitch"
 {{ end }}
