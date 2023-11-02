@@ -2,9 +2,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
-# Disables the custom module: https://docs.warp.dev/features/prompt#starship
-[custom]
-disabled = false
 
 [character]
 format = "[\\$](green bold) "
