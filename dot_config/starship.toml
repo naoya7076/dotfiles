@@ -1,4 +1,5 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+# Get editor completions based on the config schema
+'' = 'https://starship.rs/config-schema.json'
 
 # Disables the custom module: https://docs.warp.dev/features/prompt#starship
 [custom]
@@ -30,10 +31,4 @@ renamed = ''
 deleted = ''
 
 [package]
-disabled = true
-
-[nodejs]
-disabled = true
-
-[gcloud]
 disabled = true
