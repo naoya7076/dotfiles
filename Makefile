@@ -1,4 +1,4 @@
-all: init
+all: init chezmoi brew mac
 
 init:
 	.bin/init.sh
@@ -8,3 +8,6 @@ chezmoi:
 
 brew:
 	.bin/brew.sh
+
+mac:
+	.bin/mac.sh
