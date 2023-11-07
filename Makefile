@@ -11,3 +11,6 @@ brew:
 
 mac:
 	.bin/mac.sh
+
+asdf:
+	.bin/asdf.sh
