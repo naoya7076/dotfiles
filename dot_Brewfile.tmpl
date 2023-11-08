@@ -31,6 +31,10 @@ cask "visual-studio-code"
 cask "google-japanese-ime"
 cask "font-ricty-diminished"
 
+{{ if (eq .chezmoi.username "naoya7076") }}
+cask "cursor"
+{{ end }}
+
 {{ if (eq .chezmoi.username "naoya-shimizu") }}
 tap "hashicorp/tap"
 tap "versent/taps"
