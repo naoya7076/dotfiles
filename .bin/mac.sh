@@ -6,3 +6,6 @@ defaults write com.apple.finder AppleShowAllFiles True
 # タップしたときに、クリックとする
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
 defaults write com.apple.driver.AppleMultitouchTrackpad Clicking -int 1
+
+# dockに最近使ったアプリを表示しない
+defaults write com.apple.dock show-recents -bool false
