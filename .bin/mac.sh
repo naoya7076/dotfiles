@@ -20,3 +20,7 @@ defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadCornerSecondaryC
 # 2本指でビンチ
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -int 1
 defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadPinch -int 1
+
+# スマートズーム／2本指でダブルタップ
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 1
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 1
