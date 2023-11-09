@@ -16,3 +16,7 @@ defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadRightClick -int 
 
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
 defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
+
+# 2本指でビンチ
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadPinch -int 1
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadPinch -int 1
