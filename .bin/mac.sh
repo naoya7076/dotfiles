@@ -39,6 +39,12 @@ defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerVertS
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
 defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
 
+# 拡張子も表示
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# macの日本語入力のライブ変換を行わない
+defaults write com.apple.inputmethod.Kotoeri JIMPrefLiveConversionKey -int 0
+
 for app in "Dock" \
     "Finder" \
     "SystemUIServer"; do
