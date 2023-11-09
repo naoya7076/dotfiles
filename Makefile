@@ -14,3 +14,6 @@ mac:
 
 asdf:
 	.bin/asdf.sh
+
+git:
+	.bin/git.sh
