@@ -1,4 +1,4 @@
-all: init chezmoi brew mac
+all: init chezmoi brew asdf mac git
 
 init:
 	.bin/init.sh
@@ -14,3 +14,6 @@ mac:
 
 asdf:
 	.bin/asdf.sh
+
+git:
+	.bin/git.sh
