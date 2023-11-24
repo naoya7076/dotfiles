@@ -77,6 +77,9 @@ alias berand="bundle exec dotenv -f '.env.android,.env' bundle exec rspec --colo
 
 # bitwarden
 export BITWARDEN_EMAIL=naoya7076@gmail.com
+
+# Onelogin
+export ONELOGIN_MFA_IP_ADDRESS=$(curl -SsL http://checkip.amazonaws.com/)
 {{ end }}
 
 # starship
