@@ -38,6 +38,8 @@ cask "obsidian"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya-shimizu") }}
+tap "carvel-dev/carvel"
+brew "ytt"
 tap "hashicorp/tap"
 tap "versent/taps"
 
