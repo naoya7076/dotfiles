@@ -8,6 +8,7 @@ brew "awscli", link: false
 brew "bat"
 brew "chezmoi"
 brew "curl"
+brew "difftastic"
 brew "eza"
 brew "gh"
 brew "git"
@@ -29,13 +30,16 @@ cask "warp"
 cask "skitch"
 cask "slack"
 cask "visual-studio-code"
-cask "google-japanese-ime"
 cask "font-ricty-diminished"
+cask "skitch"
 
 {{ if (eq .chezmoi.username "naoya7076") }}
+brew "pnpm"
+
 cask "cursor"
 cask "obsidian"
 cask "raindropio"
+cask "discord"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya-shimizu") }}
@@ -59,5 +63,4 @@ cask "android-studio"
 cask "appium"
 cask "appium-inspector"
 cask "tableplus"
-cask "skitch"
 {{ end }}
