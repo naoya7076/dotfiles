@@ -64,6 +64,22 @@ bindkey '^R' peco-history-selection
 # github cli
 eval "$(gh completion -s zsh)"
 
+# starship
+eval "$(starship init zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# sheldon
+eval "$(sheldon source)"
+
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+{{ if (eq .chezmoi.username "naoya7076") }}
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+{{ end }}
 {{ if (eq .chezmoi.username "naoya-shimizu") }}
 # norinium
 alias ber="bundle exec rspec --color"
@@ -81,15 +97,3 @@ export BITWARDEN_EMAIL=naoya7076@gmail.com
 # Onelogin
 export ONELOGIN_MFA_IP_ADDRESS=$(curl -SsL http://checkip.amazonaws.com/)
 {{ end }}
-
-# starship
-eval "$(starship init zsh)"
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# sheldon
-eval "$(sheldon source)"
-
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
