@@ -97,3 +97,6 @@ export BITWARDEN_EMAIL=naoya7076@gmail.com
 # Onelogin
 export ONELOGIN_MFA_IP_ADDRESS=$(curl -SsL http://checkip.amazonaws.com/)
 {{ end }}
+
+# Go
+export PATH=$PATH:$(go env GOPATH)/bin
