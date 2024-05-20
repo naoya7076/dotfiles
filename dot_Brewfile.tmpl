@@ -27,7 +27,6 @@ brew "yq"
 brew "zoxide"
 
 cask "chromedriver"
-cask "logi-options-plus"
 cask "raycast"
 cask "warp"
 cask "skitch"
@@ -71,4 +70,8 @@ cask "android-studio"
 cask "appium"
 cask "appium-inspector"
 cask "tableplus"
+{{ end }}
+
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
+cask "gather"
 {{ end }}
