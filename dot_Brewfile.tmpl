@@ -74,4 +74,6 @@ cask "tableplus"
 
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 cask "gather"
+brew "mysql-client"
+brew "golang-migrate"
 {{ end }}
