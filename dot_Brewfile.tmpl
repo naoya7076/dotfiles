@@ -47,32 +47,12 @@ cask "raindropio"
 cask "discord"
 {{ end }}
 
-{{ if (eq .chezmoi.username "naoya-shimizu") }}
-tap "carvel-dev/carvel"
-brew "ytt"
-tap "hashicorp/tap"
-tap "versent/taps"
-
-brew "hashicorp/tap/terraform"
-brew "awscli"
-brew "saml2aws"
-brew "argocd"
-brew "sops"
-brew "bitwarden-cli"
-brew "diff-pdf"
-brew "actionlint"
-brew "libsodium"
-
-cask "docker"
-cask "android-studio"
-cask "appium"
-cask "appium-inspector"
-{{ end }}
-
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 cask "docker"
 cask "gather"
+cask "reactotron"
 cask "tableplus"
+
 brew "mysql-client"
 brew "golang-migrate"
 {{ end }}
