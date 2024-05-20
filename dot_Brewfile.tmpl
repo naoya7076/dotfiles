@@ -67,12 +67,12 @@ cask "docker"
 cask "android-studio"
 cask "appium"
 cask "appium-inspector"
-cask "tableplus"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 cask "docker"
 cask "gather"
+cask "tableplus"
 brew "mysql-client"
 brew "golang-migrate"
 {{ end }}
