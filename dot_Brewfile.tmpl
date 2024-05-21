@@ -4,7 +4,6 @@ tap "homebrew/cask-fonts"
 
 brew "act"
 brew "asdf"
-brew "awscli", link: false
 brew "bat"
 brew "chezmoi"
 brew "curl"
@@ -27,11 +26,9 @@ brew "yq"
 brew "zoxide"
 
 cask "chromedriver"
-cask "logi-options-plus"
 cask "raycast"
 cask "warp"
 cask "skitch"
-cask "slack"
 cask "visual-studio-code"
 cask "font-ricty-diminished"
 cask "skitch"
@@ -51,25 +48,14 @@ cask "raindropio"
 cask "discord"
 {{ end }}
 
-{{ if (eq .chezmoi.username "naoya-shimizu") }}
-tap "carvel-dev/carvel"
-brew "ytt"
-tap "hashicorp/tap"
-tap "versent/taps"
-
-brew "hashicorp/tap/terraform"
-brew "awscli"
-brew "saml2aws"
-brew "argocd"
-brew "sops"
-brew "bitwarden-cli"
-brew "diff-pdf"
-brew "actionlint"
-brew "libsodium"
-
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
 cask "docker"
-cask "android-studio"
-cask "appium"
-cask "appium-inspector"
+cask "gather"
+cask "keeper-password-manager"
+cask "reactotron"
+cask "secretive"
 cask "tableplus"
+
+brew "mysql-client"
+brew "golang-migrate"
 {{ end }}
