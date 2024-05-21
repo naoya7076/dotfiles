@@ -26,20 +26,6 @@ setopt pushd_ignore_dups
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
 
-# starship
-# eval "$(starship init zsh)"
-
-#anyenvのパス
-# anyenv がコマンドとして実行可能であれば anyenv を初期化します。
-#if [[ "${+commands[anyenv]}" == 1 ]]
-#then
-#  eval "$(anyenv init - zsh)"
-#fi
-#export PATH=“$HOME/.anyenv/bin:$PATH”
-
-#nodenvのパスを通す
-#export PATH="$HOME/.nodenv/bin:$PATH"
-#eval "$(nodenv init -)"
 # ----------------------
 # Command Aliases
 # ----------------------
@@ -73,13 +59,6 @@ eval "$(zoxide init zsh)"
 # sheldon
 eval "$(sheldon source)"
 
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-{{ if (eq .chezmoi.username "naoya7076") }}
-# volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-{{ end }}
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 # secretive
 export SSH_AUTH_SOCK=/Users/naoya.shimizu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
