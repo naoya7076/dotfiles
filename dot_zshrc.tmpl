@@ -80,22 +80,9 @@ eval "$(sheldon source)"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 {{ end }}
-{{ if (eq .chezmoi.username "naoya-shimizu") }}
-# norinium
-alias ber="bundle exec rspec --color"
-alias hber="HEADLESS=true bundle exec rspec --color"
-alias berl="bundle exec dotenv -f '.env.local,.env' bundle exec rspec --color"
-alias beri="bundle exec dotenv -f '.env.integration,.env' bundle exec rspec --color"
-
-# norinium_mobile
-alias berios="bundle exec dotenv -f '.env.ios,.env' bundle exec rspec --color"
-alias berand="bundle exec dotenv -f '.env.android,.env' bundle exec rspec --color"
-
-# bitwarden
-export BITWARDEN_EMAIL=naoya7076@gmail.com
-
-# Onelogin
-export ONELOGIN_MFA_IP_ADDRESS=$(curl -SsL http://checkip.amazonaws.com/)
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
+# secretive
+export SSH_AUTH_SOCK=/Users/naoya.shimizu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 {{ end }}
 
 # Go
