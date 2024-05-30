@@ -70,6 +70,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export VOLTA_FEATURE_PNPM=1
 
 # warp subshell(https://docs.warp.dev/features/subshells#automatically-warpify-subshells)
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
