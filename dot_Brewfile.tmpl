@@ -51,6 +51,9 @@ cask "discord"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
+tap "mongodb/brew"
+brew "mongodb-community"
+
 cask "docker"
 cask "gather"
 cask "keeper-password-manager"
