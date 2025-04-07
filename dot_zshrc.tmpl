@@ -37,6 +37,10 @@ alias grep='rg'
 
 alias k="kubectl"
 alias g='git'
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
+alias gsd='git switch develop'
+alias gpl='git pull'
+{{ end }}
 
 # peco
 function peco-history-selection() {
