@@ -37,10 +37,14 @@ alias grep='rg'
 
 alias k="kubectl"
 alias g='git'
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
+alias gsd='git switch develop'
+alias gpl='git pull'
+{{ end }}
 
 # peco
 function peco-history-selection() {
-  BUFFER=$(history -n 1 | tac | awk '!a[$0]++' | peco)
+  BUFFER=$(history -n 1 | tail -r | awk '!a[$0]++' | peco)
   CURSOR=$#BUFFER
   zle reset-prompt
 }
@@ -69,3 +73,8 @@ printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
 
 # mise
 eval "$(mise activate zsh)"
+
+# volta
+export VOLTA_FEATURE_PNPM=1
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
