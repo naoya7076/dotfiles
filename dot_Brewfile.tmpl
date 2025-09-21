@@ -9,7 +9,6 @@ brew "chezmoi"
 brew "curl"
 brew "difftastic"
 brew "eza"
-brew "gdal"
 brew "gh"
 brew "git"
 brew "git-secrets"
@@ -31,6 +30,7 @@ brew "zoxide"
 cask "claude"
 cask "cleanshot"
 cask "docker"
+cask "lookaway"
 cask "raycast"
 cask "warp"
 cask "visual-studio-code"
@@ -38,9 +38,6 @@ cask "font-ricty-diminished"
 cask "spotify"
 
 {{ if (eq .chezmoi.username "naoya7076") }}
-tap "supabase/tap"
-
-brew "supabase"
 brew "pnpm"
 
 cask "android-file-transfer"
@@ -48,8 +45,6 @@ cask "cursor"
 cask "discord"
 cask "heptabase"
 cask "raindropio"
-cask "ticktick"
-cask "zulip"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
