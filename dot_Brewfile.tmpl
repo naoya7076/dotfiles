@@ -30,6 +30,8 @@ brew "yq"
 brew "zoxide"
 
 cask "cleanshot"
+cask "docker"
+cask "lookaway"
 cask "docker-desktop"
 cask "font-moralerspace"
 cask "font-0xproto-nerd-font"
@@ -40,9 +42,6 @@ cask "font-ricty-diminished"
 cask "spotify"
 
 {{ if (eq .chezmoi.username "naoya7076") }}
-tap "supabase/tap"
-
-brew "supabase"
 brew "pnpm"
 
 cask "android-file-transfer"
@@ -51,8 +50,6 @@ cask "cursor"
 cask "discord"
 cask "heptabase"
 cask "raindropio"
-cask "ticktick"
-cask "zulip"
 {{ end }}
 
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
