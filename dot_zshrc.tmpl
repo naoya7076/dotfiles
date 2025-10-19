@@ -74,6 +74,9 @@ printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
 # mise
 eval "$(mise activate zsh)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # volta
 export VOLTA_FEATURE_PNPM=1
 export VOLTA_HOME="$HOME/.volta"
