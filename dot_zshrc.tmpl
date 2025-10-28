@@ -71,8 +71,10 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # warp subshell(https://docs.warp.dev/features/subshells#automatically-warpify-subshells)
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'
 
+{{ if (eq .chezmoi.username "naoya7076") }}
 # mise
 eval "$(mise activate zsh)"
+{{ end }}
 
 # direnv
 eval "$(direnv hook zsh)"
