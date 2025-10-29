@@ -80,7 +80,8 @@ function set_tab_name() {
 
 # プロンプト表示の前に実行
 precmd_functions+=(set_tab_name)
-
+# コマンド実行前にも実行（コマンド名で上書きされるのを防ぐ）
+preexec_functions+=(set_tab_name)
 
 {{ if (eq .chezmoi.username "naoya7076") }}
 # mise
