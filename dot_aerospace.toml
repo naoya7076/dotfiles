@@ -1,0 +1,36 @@
+default-root-container-layout = 'accordion'
+
+[workspace-to-monitor-force-assignment]
+1 = 1
+2 = 2
+3 = 2
+4 = 3
+
+[mode.main.binding]
+alt-j = 'focus left'
+alt-l = 'focus right'
+alt-i = 'focus up'
+alt-k = 'focus down'
+
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+
+alt-tab = 'workspace-back-and-forth'
+
+[[on-window-detected]]
+if.app-id = 'dev.warp.Warp-Stable'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 4'
