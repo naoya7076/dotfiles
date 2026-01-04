@@ -26,15 +26,6 @@ setopt pushd_ignore_dups
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
 
-# ----------------------
-# Command Aliases
-# ----------------------
-alias ls='eza'
-alias cat="bat"
-alias ps='procs'
-alias cd='z'
-alias grep='rg'
-
 alias k="kubectl"
 alias g='git'
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
