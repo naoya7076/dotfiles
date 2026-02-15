@@ -54,6 +54,34 @@ eval "$(starship init zsh)"
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 # secretive
 export SSH_AUTH_SOCK=/Users/naoya.shimizu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+
+# git gtr コマンドのfzf統合
+# Option+B でブランチ名を挿入
+function _gtr_insert_branch_widget() {
+  # fzfでブランチを選択
+  local branch
+  branch=$(git gtr list --porcelain 2>/dev/null | \
+    grep -v "missing" | \
+    awk '{printf "%s\t%s\n", $2, $1}' | \
+    fzf --height 40% --reverse \
+        --preview 'git -C {1} status --short' \
+        --preview-window down:5:wrap | \
+    awk '{print $2}')
+
+  # 選択されたらカーソル位置に挿入
+  if [ -n "$branch" ]; then
+    LBUFFER="${LBUFFER}${branch}"
+  fi
+
+  # プロンプトを再描画
+  zle reset-prompt
+}
+
+# ウィジェットとして登録
+zle -N _gtr_insert_branch_widget
+
+# Option+B にバインド（^[はEsc/Altキーを表す）
+bindkey '^[b' _gtr_insert_branch_widget
 {{ end }}
 
 # Go
@@ -86,3 +114,6 @@ eval "$(direnv hook zsh)"
 export VOLTA_FEATURE_PNPM=1
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# claude
+export PATH="$HOME/.local/bin:$PATH"
