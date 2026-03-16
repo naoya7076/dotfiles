@@ -14,6 +14,16 @@ setopt auto_cd
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# cliの操作をみやすくするためのエイリアス
+if [[ -z "$CLAUDE" ]]; then
+  alias ls="eza --icons --git --no-user"
+  alias ll="eza -l --icons --git --no-user"
+  alias la="eza -la --icons --git --no-user"
+  alias tree="eza --tree --icons"
+  alias cat="bat"
+  alias grep="rg"
+fi
+
 # cd した先のディレクトリをディレクトリスタックに追加する
 # ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
 # `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
@@ -26,7 +36,6 @@ setopt pushd_ignore_dups
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
 
-alias k="kubectl"
 alias g='git'
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 alias gsm='git switch main'
