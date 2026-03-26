@@ -111,18 +111,18 @@ precmd_functions+=(set_tab_name)
 # コマンド実行前にも実行（コマンド名で上書きされるのを防ぐ）
 preexec_functions+=(set_tab_name)
 
-{{ if (eq .chezmoi.username "naoya7076") }}
 # mise
 eval "$(mise activate zsh)"
-{{ end }}
 
 # direnv
 eval "$(direnv hook zsh)"
 
+{{ if (eq .chezmoi.username "naoya7076") }}
 # volta
 export VOLTA_FEATURE_PNPM=1
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+{{ end }}
 
 # claude
 export PATH="$HOME/.local/bin:$PATH"
