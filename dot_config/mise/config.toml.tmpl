@@ -1,0 +1,16 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+trusted_config_paths = ["~/kaminashi/mars-prototype-worktrees"]
+
+{{ if (eq .chezmoi.username "naoya.shimizu") }}
+[tools]
+node = "24"
+pnpm = "10"
+yarn = "4"
+"npm:vercel" = "latest"
+"npm:@antfu/ni" = "latest"
+"npm:@googleworkspace/cli" = "latest"
+"npm:agent-browser" = "latest"
+"npm:difit" = "latest"
+"npm:@doist/todoist-cli" = "latest"
+{{ end }}
