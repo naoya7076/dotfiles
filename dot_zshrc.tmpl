@@ -14,6 +14,16 @@ setopt auto_cd
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# cliの操作をみやすくするためのエイリアス
+if [[ -z "$CLAUDECODE" ]]; then
+  alias ls="eza --icons --git --no-user"
+  alias ll="eza -l --icons --git --no-user"
+  alias la="eza -la --icons --git --no-user"
+  alias tree="eza --tree --icons"
+  alias cat="bat"
+  alias grep="rg"
+fi
+
 # cd した先のディレクトリをディレクトリスタックに追加する
 # ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
 # `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
@@ -26,7 +36,6 @@ setopt pushd_ignore_dups
 # コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
 setopt hist_ignore_all_dups
 
-alias k="kubectl"
 alias g='git'
 {{ if (eq .chezmoi.username "naoya.shimizu") }}
 alias gsm='git switch main'
@@ -55,33 +64,10 @@ eval "$(starship init zsh)"
 # secretive
 export SSH_AUTH_SOCK=/Users/naoya.shimizu/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
-# git gtr コマンドのfzf統合
-# Option+B でブランチ名を挿入
-function _gtr_insert_branch_widget() {
-  # fzfでブランチを選択
-  local branch
-  branch=$(git gtr list --porcelain 2>/dev/null | \
-    grep -v "missing" | \
-    awk '{printf "%s\t%s\n", $2, $1}' | \
-    fzf --height 40% --reverse \
-        --preview 'git -C {1} status --short' \
-        --preview-window down:5:wrap | \
-    awk '{print $2}')
-
-  # 選択されたらカーソル位置に挿入
-  if [ -n "$branch" ]; then
-    LBUFFER="${LBUFFER}${branch}"
-  fi
-
-  # プロンプトを再描画
-  zle reset-prompt
-}
-
-# ウィジェットとして登録
-zle -N _gtr_insert_branch_widget
-
-# Option+B にバインド（^[はEsc/Altキーを表す）
-bindkey '^[b' _gtr_insert_branch_widget
+# git-worktree-runner
+_gtr_init="${XDG_CACHE_HOME:-$HOME/.cache}/gtr/init-gtr.zsh"
+[[ -f "$_gtr_init" ]] || eval "$(git gtr init zsh)" || true
+source "$_gtr_init" 2>/dev/null || true; unset _gtr_init
 {{ end }}
 
 # Go
@@ -102,18 +88,18 @@ precmd_functions+=(set_tab_name)
 # コマンド実行前にも実行（コマンド名で上書きされるのを防ぐ）
 preexec_functions+=(set_tab_name)
 
-{{ if (eq .chezmoi.username "naoya7076") }}
 # mise
 eval "$(mise activate zsh)"
-{{ end }}
 
 # direnv
 eval "$(direnv hook zsh)"
 
+{{ if (eq .chezmoi.username "naoya7076") }}
 # volta
 export VOLTA_FEATURE_PNPM=1
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+{{ end }}
 
 # claude
 export PATH="$HOME/.local/bin:$PATH"
